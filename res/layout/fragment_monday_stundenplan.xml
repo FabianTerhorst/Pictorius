@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/drawerlayout1" >
+
+    <EditText
+        android:id="@+id/from"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="1000"
+        android:hint="Fach"
+        android:inputType="textPersonName" >
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/room"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Raum"
+        android:inputType="number" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/hourfrom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Stunde von (z.b. 1)"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/hourto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Stunde bis (z.b. 2)"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/timefrom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Uhrzeit von (z.b. 8:00)"
+        android:inputType="time" />
+
+    <EditText
+        android:id="@+id/timeto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Uhrzeit bis (z.b. 13:10)"
+        android:inputType="time" />
+
+    <ListView
+        android:id="@+id/listView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </ListView>
+     <LinearLayout android:id="@+id/emptyView"
+          android:layout_width="wrap_content" 
+          android:layout_height="wrap_content">
+
+
+            <Button android:id="@+id/Button01" 
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" 
+               android:text="Keine Stunden,klicke hier um Stunden hinzuzufügen">
+            </Button>
+       </LinearLayout>
+</LinearLayout>

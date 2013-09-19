@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/drawerlayout1" >
+
+    <EditText
+        android:id="@+id/from"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="1000"
+        android:inputType="textPersonName" >
+    </EditText>
+
+    <ListView
+        android:id="@+id/listView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </ListView>
+     <LinearLayout android:id="@+id/emptyView"
+          android:layout_width="wrap_content" 
+          android:layout_height="wrap_content">
+
+
+            <Button android:id="@+id/Button01" 
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" 
+               android:text="Keine Stunden,klicke hier um Stunden hinzuzufügen">
+            </Button>
+       </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="de.fterhorst.pictoriusvertretungsplan"
+    android:versionCode="1"
+    android:versionName="0.11.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="18" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
+    <!--
+<dependency>
+  <groupId>org.jsoup</groupId>
+  <artifactId>jsoup</artifactId>
+  <version>1.7.2</version>
+</dependency>
+    -->
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.Sherlock.Light.DarkActionBar" >
+        <activity
+            android:name="de.fterhorst.pictoriusvertretungsplan.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+
+                <!-- VertretungsPlanActivity -->
+                <!-- JSoupStudyActivity Theme.Sherlock.Light.DarkActionBar -->
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="de.fterhorst.pictoriusvertretungsplan.HelpActivity"
+            android:label="@string/title_activity_help" >
+        </activity>
+        <activity android:name="UserSettingActivity"></activity>
+         <receiver android:icon="@drawable/ic_launcher"
+              android:label="@string/app_name"
+              android:name="de.fterhorst.pictoriusvertretungsplan.WidgetProvider">
+      <intent-filter>
+        <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+      </intent-filter>
+      <meta-data android:name="android.appwidget.provider"
+                 android:resource="@xml/widget_provider" />
+    </receiver>
+    <service android:name="de.fterhorst.pictoriusvertretungsplan.adapter.WidgetService"
+             android:permission="android.permission.BIND_REMOTEVIEWS" />
+    <activity android:name="StundenPlanActivity"></activity>
+    <activity android:name="CustomList"></activity>
+    <activity android:name="PlanActivity"></activity>
+    <activity android:name="VertretungsPlanActivity"
+        android:configChanges="orientation|keyboardHidden"></activity>
+     <activity android:name="VertretungsPlanActivity_landscape"
+         android:configChanges="orientation|keyboardHidden"></activity>
+     <activity android:name="ActivityAdd"></activity>
+     <activity android:name="MainActivityAdd"></activity>
+    </application>
+
+</manifest>

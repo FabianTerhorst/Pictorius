@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+	android:id="@+id/ll1"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:background="@drawable/card_background_white"
+    android:orientation="vertical"
+    android:paddingBottom="16dp" >
+
+    <!-- android:background="@drawable/background"  fill_parent   android:layout_height="wrap_content"-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+         android:layout_height="fill_parent" 
+        android:gravity="center_vertical"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:layout_weight="0.9"
+            android:text="klasse"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#ff707070"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="0.09"
+            android:text="datum"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#ff707070"
+            android:textSize="25sp" />
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.01"
+            android:src="@drawable/spinner" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="4dp"
+        android:background="@color/stroke"
+        android:id="@+id/View1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+         android:layout_height="fill_parent" 
+        android:gravity="center_vertical"
+        android:padding="4dp" >
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:layout_weight="0.25"
+            android:text="fach"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#ff707070"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="0.25"
+            android:text="raum"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#ff707070"
+            android:textSize="25sp" />
+
+         <TextView
+             android:id="@+id/textView5"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginLeft="0dp"
+             android:layout_weight="0.25"
+             android:text="lehrer"
+             android:textAppearance="?android:attr/textAppearanceMedium"
+             android:textColor="#ff707070"
+             android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="0.25"
+            android:text="stunde"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#ff707070"
+            android:textSize="25sp" />
+    </LinearLayout>
+
+</LinearLayout>

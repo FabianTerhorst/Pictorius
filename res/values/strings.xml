@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Pictorius</string>
+    <string name="action_settings">Einstellungen</string>
+    <string name="action_help">Hilfe</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_help">HelpActivity</string>
+	<string name="red">Red</string>
+    <string name="green">Green</string>
+    <string name="blue">Blue</string>
+    <string name="purple">Purple</string>
+    <string name="orange">Orange</string>
+    <string name="title_section1">Montag</string>
+    <string name="title_section2">Dienstag</string>
+    <string name="title_section3">Mittwoch</string>
+    <string name="title_section4">Donnerstag</string>
+    <string name="title_section5">Freitag</string>
+    <string name="title_section">Alle Tage</string>
+     <string name="title_section_null"></string>
+     <string name="title_section_today">Heute</string>
+     <string name="menu_search">Suche...</string>
+      <string name="pref_send_report">Sende crash reports</string>
+    <string name="pref_send_report_summary">Hilft bei Problembehebungen</string>
+    <string name="pref_sync_frequency">Sync frequency</string>
+    <string name="pref_sync_frequency_summary">Set the sync frequency</string>
+    <string name="pref_user_name">Benutzername eingeben</string>
+    <string name="pref_user_name_summary">Wird noch nicht verwendet</string>
+    <string name="pref_user_profile">Profil</string>
+    <string name="pref_update_setting">Update Settings</string>
+    <string name="pref_today_always_up">Startseite mit heutigen Tag</string>
+    <string name="pref_today">Heutiger Tag immer oben anzeigen</string>
+    <string name="pref_own_class_summary">Benötigt Eingabe der Klasse</string>
+    <string name="pref_own_class">Nur eigene Klasse anzeigen</string>
+     <string name="pref_interface_setting">Darstellung</string>
+     <string name="pref_class_name">Klassenname eingeben</string>
+    <string name="pref_class_name_summary">Auf Groß- und Kleinschreibung achten</string>
+    <string name="pref_actionbar_color">Benötigt App Neustart</string>
+    <string name="pref_actionbar_color_title">ActionBar Farbe ändern</string>
+    <string name="action_add">Stunde hinzufügen</string>
+    <string name="action_save">Stunden speichern</string>
+    
+</resources>

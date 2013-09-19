@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="@string/pref_user_profile" >
+        <EditTextPreference 
+            	android:title="@string/pref_user_name" 
+            	android:summary="@string/pref_user_name_summary" 
+            	android:key="prefUsername"/>
+        <EditTextPreference 
+            	android:title="@string/pref_class_name" 
+            	android:summary="@string/pref_class_name_summary" 
+            	android:key="prefClass"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/pref_interface_setting" >
+         <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="prefTodayAlwaysUp"
+            android:summary="@string/pref_today_always_up"
+            android:title="@string/pref_today" >
+            </CheckBoxPreference>
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="prefOwnClass"
+            android:summary="@string/pref_own_class_summary"
+            android:title="@string/pref_own_class" >
+        </CheckBoxPreference>
+        <ListPreference
+            android:key="prefActionBar"
+            android:entries="@array/actionbarcolor"
+            android:summary="@string/pref_actionbar_color" 
+            android:entryValues="@array/actionbarcolorcode"
+            android:title="@string/pref_actionbar_color_title" />
+
+        
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/pref_update_setting" >
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="prefSendReport"
+            android:summary="@string/pref_send_report_summary"
+            android:title="@string/pref_send_report" >
+        </CheckBoxPreference>
+        <!--  <ListPreference
+            android:key="prefSyncFrequency"
+            android:entries="@array/syncFrequency"
+            android:summary="@string/pref_sync_frequency_summary" 
+            android:entryValues="@array/syncFrequencyValues"
+            android:title="@string/pref_sync_frequency" />-->
+         </PreferenceCategory>
+
+</PreferenceScreen>

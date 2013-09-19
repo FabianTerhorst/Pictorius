@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+<LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/editTextName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="textPersonName" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/editTextRoom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Raum"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/timefrom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="opendialog"
+        android:text="Von"
+        android:drawableRight="@drawable/spinner" />
+        <Button
+        android:id="@+id/timeto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="opendialog"
+        android:text="Bis"
+        android:drawableRight="@drawable/spinner" />
+
+    <Spinner
+        android:id="@+id/day"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Spinner
+        android:id="@+id/hour1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="bis"
+        android:textSize="20sp" />
+
+    <Spinner
+        android:id="@+id/hour2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hinzufügen" />
+
+</LinearLayout>
+</ScrollView>
