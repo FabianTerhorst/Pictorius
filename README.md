@@ -1,4 +1,4 @@
-PictoriusVertretungsPlan
+Pictorius-App
 ========================
 Copyright 2013 Fabian Terhorst
 
