@@ -108,30 +108,30 @@ public final class R {
 		public static final int notification_template_icon_low_bg = 0x7f020089;
 	}
 	public static final class id {
-		public static final int action_settings = 0x7f070090;
-		public static final int ampm_label = 0x7f070076;
-		public static final int cancel_button = 0x7f07006e;
-		public static final int delete = 0x7f070077;
-		public static final int first = 0x7f070078;
-		public static final int fourth = 0x7f07007b;
-		public static final int hours_label = 0x7f07007c;
-		public static final int hours_ones = 0x7f070072;
-		public static final int hours_seperator = 0x7f070073;
-		public static final int hours_tens = 0x7f070071;
-		public static final int key_left = 0x7f07006a;
-		public static final int key_middle = 0x7f07006b;
-		public static final int key_right = 0x7f07006c;
-		public static final int minutes_label = 0x7f07007d;
-		public static final int minutes_ones = 0x7f070075;
-		public static final int minutes_tens = 0x7f070074;
+		public static final int action_settings = 0x7f070092;
+		public static final int ampm_label = 0x7f070078;
+		public static final int cancel_button = 0x7f070070;
+		public static final int delete = 0x7f070079;
+		public static final int first = 0x7f07007a;
+		public static final int fourth = 0x7f07007d;
+		public static final int hours_label = 0x7f07007e;
+		public static final int hours_ones = 0x7f070074;
+		public static final int hours_seperator = 0x7f070075;
+		public static final int hours_tens = 0x7f070073;
+		public static final int key_left = 0x7f07006c;
+		public static final int key_middle = 0x7f07006d;
+		public static final int key_right = 0x7f07006e;
+		public static final int minutes_label = 0x7f07007f;
+		public static final int minutes_ones = 0x7f070077;
+		public static final int minutes_tens = 0x7f070076;
 		public static final int numbers_key = 0x7f070000;
-		public static final int second = 0x7f070079;
-		public static final int seconds = 0x7f07007e;
-		public static final int seconds_label = 0x7f07007f;
-		public static final int set_button = 0x7f07006f;
-		public static final int third = 0x7f07007a;
-		public static final int time_picker = 0x7f07006d;
-		public static final int timer_time_text = 0x7f070070;
+		public static final int second = 0x7f07007b;
+		public static final int seconds = 0x7f070080;
+		public static final int seconds_label = 0x7f070081;
+		public static final int set_button = 0x7f070071;
+		public static final int third = 0x7f07007c;
+		public static final int time_picker = 0x7f07006f;
+		public static final int timer_time_text = 0x7f070072;
 	}
 	public static final class layout {
 		public static final int three_keys_view = 0x7f030030;
