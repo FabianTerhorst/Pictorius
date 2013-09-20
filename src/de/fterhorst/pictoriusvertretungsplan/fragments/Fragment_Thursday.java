@@ -34,7 +34,7 @@ public class Fragment_Thursday extends SherlockFragment{
 ArrayAdapter<String> adapter1;
 MyBaseAdapter adapter3;
 EditText EditText1,room,hourfrom,hourto,timefrom,timeto;
-Button Button1,houradd;
+Button Button1,houradd,cancel;
 ListView List;
 public static String ARG_SECTION_NUMBER;
 String[] stringArray,stringArray_room,stringArray2,stringArray3,stringArray4,stringArray5,stringArray1,stringArray_hour,stringArray_time;
@@ -103,6 +103,7 @@ hourto = (EditText)V.findViewById(R.id.hourto);
 timefrom = (EditText)V.findViewById(R.id.timefrom);
 timeto = (EditText)V.findViewById(R.id.timeto);
 houradd = (Button)V.findViewById(R.id.addHour);
+cancel = (Button)V.findViewById(R.id.cancel);
 List.setOnItemClickListener(new OnItemClickListener(){
 	public void onItemClick(AdapterView<?> adapter, View view, int position,
 			long id) {
@@ -193,8 +194,6 @@ public boolean onOptionsItemSelected(MenuItem item) {
 		   
 			//   Intent i = new Intent(getActivity(),MainActivityAdd.class);
 			//   startActivity(i);
-			   if(count4 == 1){
-				   count4 = 0;
 			   EditText1.setVisibility(View.VISIBLE);
 			   room.setVisibility(View.VISIBLE);
 			   hourfrom.setVisibility(View.VISIBLE);
@@ -202,6 +201,20 @@ public boolean onOptionsItemSelected(MenuItem item) {
 			   timefrom.setVisibility(View.VISIBLE);
 			   timeto.setVisibility(View.VISIBLE);
 			   houradd.setVisibility(View.VISIBLE);
+			   cancel.setVisibility(View.VISIBLE);
+			   cancel.setOnClickListener(new OnClickListener(){
+			        @Override
+			        public void onClick(View view) {
+			        	 EditText1.setVisibility(View.GONE);
+			  		   room.setVisibility(View.GONE);
+			  		   hourfrom.setVisibility(View.GONE);
+			  		   hourto.setVisibility(View.GONE);
+			  		   timefrom.setVisibility(View.GONE);
+			  		   timeto.setVisibility(View.GONE);
+			  		   houradd.setVisibility(View.GONE);
+			  		   cancel.setVisibility(View.GONE);
+			        }
+			   });
 			   houradd.setOnClickListener(new OnClickListener(){
 			        @Override
 			        public void onClick(View view) {
@@ -281,16 +294,6 @@ public boolean onOptionsItemSelected(MenuItem item) {
 			        	
 			        }
 			    });
-			   }else{
-				   count4 = 1;
-				   EditText1.setVisibility(View.GONE);
-				   room.setVisibility(View.GONE);
-				   hourfrom.setVisibility(View.GONE);
-				   hourto.setVisibility(View.GONE);
-				   timefrom.setVisibility(View.GONE);
-				   timeto.setVisibility(View.GONE);
-				   houradd.setVisibility(View.GONE);
-			   }
 	        return true;
 	   case R.id.action_save:
 		   try {
