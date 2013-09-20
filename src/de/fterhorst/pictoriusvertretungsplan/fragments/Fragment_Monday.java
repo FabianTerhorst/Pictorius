@@ -13,6 +13,7 @@ import android.support.v4.app.ActionBarDrawerToggle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -39,7 +40,7 @@ public class Fragment_Monday extends SherlockFragment{
 ArrayAdapter<String> adapter1;
 MyBaseAdapter adapter3;
 EditText EditText1,room,hourfrom,hourto,timefrom,timeto;
-Button Button1;
+Button Button1,houradd;
 ListView List;
 public static String ARG_SECTION_NUMBER;
 String[] stringArray,stringArray_room,stringArray2,stringArray3,stringArray4,stringArray5,stringArray1,stringArray_hour,stringArray_time;
@@ -53,6 +54,7 @@ ArrayList<String> listItems2=new ArrayList<String>();
 ArrayList<String> listItems3=new ArrayList<String>();
 ArrayList<String> listItems4=new ArrayList<String>();
 ArrayList<String> listItems5=new ArrayList<String>();
+int count = 1;
 private ActionBarDrawerToggle mDrawerToggle;
 public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 	 View V = inflater.inflate(R.layout.fragment_monday_stundenplan, container, false);
@@ -116,6 +118,9 @@ hourfrom = (EditText)V.findViewById(R.id.hourfrom);
 hourto = (EditText)V.findViewById(R.id.hourto);
 timefrom = (EditText)V.findViewById(R.id.timefrom);
 timeto = (EditText)V.findViewById(R.id.timeto);
+houradd = (Button)V.findViewById(R.id.addHour);
+
+
 List.setOnItemClickListener(new OnItemClickListener(){
 	public void onItemClick(AdapterView<?> adapter, View view, int position,
 			long id) {
@@ -203,82 +208,107 @@ public void onCreateOptionsMenu (Menu menu, MenuInflater inflater) {
 public boolean onOptionsItemSelected(MenuItem item) {
 	switch (item.getItemId()) {
 	   case R.id.action_add:
+		   
 		//   Intent i = new Intent(getActivity(),MainActivityAdd.class);
 		//   startActivity(i);
-		   
-		   listItems.add(EditText1.getText().toString());//EditText1.getText().toString()
-		  // Toast.makeText(getActivity(), room.getText().toString(), Toast.LENGTH_LONG).show();
-		   listItems_room.add("Raum "+room.getText().toString());
-		   listItems_hour.add(hourfrom.getText().toString()+ "." + " - " +hourto.getText().toString()+ "." + " Stunde");
-		   listItems_time.add(" "+timefrom.getText().toString()+ " Uhr" + " - " +timeto.getText().toString()+ " Uhr");
-			adapter1.notifyDataSetChanged();
-			stringArray = listItems.toArray(new String[listItems.size()]);
-			stringArray_room = listItems_room.toArray(new String[listItems_room.size()]);
-			stringArray_hour = listItems_hour.toArray(new String[listItems_hour.size()]);
-			stringArray_time = listItems_time.toArray(new String[listItems_time.size()]);
-			//Log.d("app", stringArray_room[1]);
-			// Log.d("app",stringArray_room[1]);
-			 adapter1=new MySimpleArrayAdapter(getActivity(),stringArray,stringArray_room,stringArray_hour,stringArray_time);
-			 List.setAdapter(adapter1);
-		    adapter1.notifyDataSetChanged();
-		   
-		   try {
-			   //Modes: MODE_PRIVATE, MODE_WORLD_READABLE, MODE_WORLD_WRITABLE
-			   FileOutputStream output = getActivity().openFileOutput("lines.txt",getActivity().MODE_WORLD_READABLE);
-			   DataOutputStream dout = new DataOutputStream(output);
-			   dout.writeInt(listItems.size());
-			   for(String line : listItems)
-			   dout.writeUTF(line);
-			   dout.flush(); // Flush stream ...
-			   dout.close(); // ... and close.
-			}
-			catch (IOException exc) { exc.printStackTrace(); }
-		   try {
-			   //Modes: MODE_PRIVATE, MODE_WORLD_READABLE, MODE_WORLD_WRITABLE
-			   FileOutputStream output = getActivity().openFileOutput("lines_room.txt",getActivity().MODE_WORLD_READABLE);
-			   DataOutputStream dout = new DataOutputStream(output);
-			   dout.writeInt(listItems_room.size());// Save line count
-			   for(String line : listItems_room)
-			   dout.writeUTF(line);
-			   dout.flush(); // Flush stream ...
-			   dout.close(); // ... and close.
-			}
-			catch (IOException exc) { exc.printStackTrace(); }
-		   try {
-			   //Modes: MODE_PRIVATE, MODE_WORLD_READABLE, MODE_WORLD_WRITABLE
-			   FileOutputStream output = getActivity().openFileOutput("lines_hour.txt",getActivity().MODE_WORLD_READABLE);
-			   DataOutputStream dout = new DataOutputStream(output);
-			   dout.writeInt(listItems_hour.size());// Save line count
-			   for(String line : listItems_hour)
-			   dout.writeUTF(line);
-			   dout.flush(); // Flush stream ...
-			   dout.close(); // ... and close.
-			}
-			catch (IOException exc) { exc.printStackTrace(); }
-		   try {
-			   //Modes: MODE_PRIVATE, MODE_WORLD_READABLE, MODE_WORLD_WRITABLE
-			   FileOutputStream output = getActivity().openFileOutput("lines_time.txt",getActivity().MODE_WORLD_READABLE);
-			   DataOutputStream dout = new DataOutputStream(output);
-			   dout.writeInt(listItems_time.size());// Save line count
-			   for(String line : listItems_time)
-			   dout.writeUTF(line);
-			   dout.flush(); // Flush stream ...
-			   dout.close(); // ... and close.
-			}
-			catch (IOException exc) { exc.printStackTrace(); }
-		   EditText1.setText("");
-		   EditText1.clearComposingText();
-		   room.setText("");
-		   room.clearComposingText();
-		   hourfrom.setText("");
-		   hourfrom.clearComposingText();
-		   hourto.setText("");
-		   hourto.clearComposingText();
-		   timefrom.setText("");
-		   timefrom.clearComposingText();
-		   timeto.setText("");
-		   timeto.clearComposingText();
-		   adapter1.notifyDataSetChanged();
+		   if(count == 1){
+			   count = 0;
+		   EditText1.setVisibility(View.VISIBLE);
+		   room.setVisibility(View.VISIBLE);
+		   hourfrom.setVisibility(View.VISIBLE);
+		   hourto.setVisibility(View.VISIBLE);
+		   timefrom.setVisibility(View.VISIBLE);
+		   timeto.setVisibility(View.VISIBLE);
+		   houradd.setVisibility(View.VISIBLE);
+		   houradd.setOnClickListener(new OnClickListener(){
+		        @Override
+		        public void onClick(View view) {
+
+		 		   listItems.add(EditText1.getText().toString());
+				   listItems_room.add("Raum "+room.getText().toString());
+				   listItems_hour.add(hourfrom.getText().toString()+ "." + " - " +hourto.getText().toString()+ "." + " Stunde");
+				   listItems_time.add(" "+timefrom.getText().toString()+ " Uhr" + " - " +timeto.getText().toString()+ " Uhr");
+					adapter1.notifyDataSetChanged();
+					stringArray = listItems.toArray(new String[listItems.size()]);
+					stringArray_room = listItems_room.toArray(new String[listItems_room.size()]);
+					stringArray_hour = listItems_hour.toArray(new String[listItems_hour.size()]);
+					stringArray_time = listItems_time.toArray(new String[listItems_time.size()]);
+					 adapter1=new MySimpleArrayAdapter(getActivity(),stringArray,stringArray_room,stringArray_hour,stringArray_time);
+					 List.setAdapter(adapter1);
+				    adapter1.notifyDataSetChanged();
+				   
+				   try {
+					   //Modes: MODE_PRIVATE, MODE_WORLD_READABLE, MODE_WORLD_WRITABLE
+					   FileOutputStream output = getActivity().openFileOutput("lines.txt",getActivity().MODE_WORLD_READABLE);
+					   DataOutputStream dout = new DataOutputStream(output);
+					   dout.writeInt(listItems.size());
+					   for(String line : listItems)
+					   dout.writeUTF(line);
+					   dout.flush(); // Flush stream ...
+					   dout.close(); // ... and close.
+					}
+					catch (IOException exc) { exc.printStackTrace(); }
+				   try {
+					   //Modes: MODE_PRIVATE, MODE_WORLD_READABLE, MODE_WORLD_WRITABLE
+					   FileOutputStream output = getActivity().openFileOutput("lines_room.txt",getActivity().MODE_WORLD_READABLE);
+					   DataOutputStream dout = new DataOutputStream(output);
+					   dout.writeInt(listItems_room.size());// Save line count
+					   for(String line : listItems_room)
+					   dout.writeUTF(line);
+					   dout.flush(); // Flush stream ...
+					   dout.close(); // ... and close.
+					}
+					catch (IOException exc) { exc.printStackTrace(); }
+				   try {
+					   //Modes: MODE_PRIVATE, MODE_WORLD_READABLE, MODE_WORLD_WRITABLE
+					   FileOutputStream output = getActivity().openFileOutput("lines_hour.txt",getActivity().MODE_WORLD_READABLE);
+					   DataOutputStream dout = new DataOutputStream(output);
+					   dout.writeInt(listItems_hour.size());// Save line count
+					   for(String line : listItems_hour)
+					   dout.writeUTF(line);
+					   dout.flush(); // Flush stream ...
+					   dout.close(); // ... and close.
+					}
+					catch (IOException exc) { exc.printStackTrace(); }
+				   try {
+					   //Modes: MODE_PRIVATE, MODE_WORLD_READABLE, MODE_WORLD_WRITABLE
+					   FileOutputStream output = getActivity().openFileOutput("lines_time.txt",getActivity().MODE_WORLD_READABLE);
+					   DataOutputStream dout = new DataOutputStream(output);
+					   dout.writeInt(listItems_time.size());// Save line count
+					   for(String line : listItems_time)
+					   dout.writeUTF(line);
+					   dout.flush(); // Flush stream ...
+					   dout.close(); // ... and close.
+					}
+					catch (IOException exc) { exc.printStackTrace(); }
+				   EditText1.setText("");
+				   EditText1.clearComposingText();
+				   room.setText("");
+				   room.clearComposingText();
+				   hourfrom.setText("");
+				   hourfrom.clearComposingText();
+				   hourto.setText("");
+				   hourto.clearComposingText();
+				   timefrom.setText("");
+				   timefrom.clearComposingText();
+				   timeto.setText("");
+				   timeto.clearComposingText();
+				   adapter1.notifyDataSetChanged();
+		        	
+		        	
+		        	
+		        }
+		    });
+		   }else{
+			   count = 1;
+			   EditText1.setVisibility(View.GONE);
+			   room.setVisibility(View.GONE);
+			   hourfrom.setVisibility(View.GONE);
+			   hourto.setVisibility(View.GONE);
+			   timefrom.setVisibility(View.GONE);
+			   timeto.setVisibility(View.GONE);
+			   houradd.setVisibility(View.GONE);
+		   }
 	        return true;
 	   case R.id.action_save:
 		   try {

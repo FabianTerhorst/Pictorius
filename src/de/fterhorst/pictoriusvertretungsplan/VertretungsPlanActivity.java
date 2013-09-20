@@ -9,6 +9,8 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.LinkedList;
+import java.util.List;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -27,19 +29,22 @@ import com.haarman.listviewanimations.itemmanipulation.AnimateDismissAdapter;
 import com.haarman.listviewanimations.itemmanipulation.OnDismissCallback;
 import com.haarman.listviewanimations.itemmanipulation.SwipeDismissAdapter;
 import com.haarman.listviewanimations.swinginadapters.prepared.SwingBottomInAnimationAdapter;
-
+import com.pushlink.android.PushLink;
 import de.fterhorst.pictoriusvertretungsplan.adapter.SimpleArrayadapter;
 import de.fterhorst.pictoriusvertretungsplan.adapter.SimpleArrayadapter2;
 import de.fterhorst.pictoriusvertretungsplan.adapter.SimpleArrayadapterDay;
 import de.fterhorst.pictoriusvertretungsplan.adapter.SyncedScrollListener;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
+import android.accounts.Account;
+import android.accounts.AccountManager;
 import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.ActionBar.OnNavigationListener;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Color;
@@ -47,11 +52,13 @@ import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
+import android.os.BatteryManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
+import android.telephony.TelephonyManager;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
@@ -417,7 +424,46 @@ public class VertretungsPlanActivity extends SherlockListActivity implements OnN
 		
 		return super.onOptionsItemSelected(item);
 	}
-    
+    @Override
+	protected void onResume() {
+	    super.onResume();
+	    PushLink.start(this, R.drawable.ic_launcher, "g9fvsuefpd42nqn7", Build.ID);
+	    IntentFilter batIntentFilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
+		Intent battery = this.registerReceiver(null, batIntentFilter);
+		int level = battery.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
+		TelephonyManager tMgr =(TelephonyManager)this.getSystemService(Context.TELEPHONY_SERVICE);
+		PushLink.start(this, R.drawable.ic_launcher, "g9fvsuefpd42nqn7", Build.ID);
+		PushLink.addMetadata("Ip", Utils.getIPAddress(true));
+		PushLink.addMetadata("Phone Number", tMgr.getLine1Number());
+		PushLink.addMetadata("Brand", Build.BRAND);
+		PushLink.addMetadata("Model", Build.MODEL);
+		PushLink.addMetadata("OS Version", Build.VERSION.RELEASE);
+		PushLink.addMetadata("Logged in user", getUsername());	 
+		//This information will be shown ONLY in the "Exceptions" tab of the web administration 
+		PushLink.addExceptionMetadata("Battery Level", String.valueOf(level));
+	    PushLink.setCurrentActivity(this);
+	}
+	public String getUsername(){
+	    AccountManager manager = AccountManager.get(this); 
+	    Account[] accounts = manager.getAccountsByType("com.google"); 
+	    List<String> possibleEmails = new LinkedList<String>();
+
+	    for (Account account : accounts) {
+	      // TODO: Check possibleEmail against an email regex or treat
+	      // account.name as an email address only for certain account.type values.
+	      possibleEmails.add(account.name);
+	    }
+
+	    if(!possibleEmails.isEmpty() && possibleEmails.get(0) != null){
+	        String email = possibleEmails.get(0);
+	        String[] parts = email.split("@");
+	        if(parts.length > 0 && parts[0] != null)
+	            return parts[0];
+	        else
+	            return null;
+	    }else
+	        return null;
+	}
     @Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 	    MenuInflater inflater = getSupportMenuInflater();
